@@ -27,17 +27,11 @@
       <div class="hero-copy">
         <p class="eyebrow">Hong Kong · Data · Research · Operations</p>
         <h1>Ferretti<br><em>Berlincioni</em></h1>
-        <p class="hero-summary">I turn complex information into useful systems, clear analysis, and better decisions.</p>
+        <p class="hero-summary">I am a quantitative social analysis student interested in data, research, and operational problem-solving.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#experience">Explore my work <span aria-hidden="true">↓</span></a>
+          <a class="button button-primary" href="#experience">View my work <span aria-hidden="true">↓</span></a>
           <a class="button button-quiet" href="mailto:fberlincioni@connect.ust.hk">Get in touch <span aria-hidden="true">↗</span></a>
         </div>
-      </div>
-      <div class="hero-aside">
-        <div class="status-mark"><span></span> Currently building</div>
-        <p>Data pipelines and research tools at the Hong Kong University of Science &amp; Technology.</p>
-        <div class="hero-rule"></div>
-        <p class="small-note">Expected graduation<br><strong>2028</strong></p>
       </div>
     </section>
 
@@ -60,24 +54,64 @@
         <article class="experience-item">
           <div class="experience-meta"><span>May 2025 — Present</span><span>Hong Kong, China</span></div>
           <div class="experience-content">
-            <p class="role-type">Research · Engineering</p>
-            <h3>Data Engineer Assistant</h3>
-            <p class="company">HKUST · ISOM Department</p>
-            <div class="role-media">
-              <img class="role-logo" src="sbm.jpeg" alt="HKUST Business School logo">
+            <div class="experience-track" id="experience-track">
+              <div class="experience-detail">
+                <p class="role-type">Research · Financial Econometrics</p>
+                <h3>Data Engineer Assistant</h3>
+                <p class="company">HKUST · ISOM Department</p>
+                <div class="role-media">
+                  <img class="role-logo" src="sbm.jpeg" alt="HKUST Business School logo">
+                </div>
+                <ul>
+                  <li>Developed an automated end-to-end ETL pipeline for Mac and Linux using Python, Selenium, and the Gmail API, reducing tick-by-tick stock data processing from two weeks to 24 hours.</li>
+                  <li>Built an interactive R Shiny dashboard to filter financial data and improve accessibility for stakeholders.</li>
+                  <li>Translated legacy Stata and MATLAB scripts into R, and created cleaning scripts to parse, label, and merge monthly data into multi-year datasets.</li>
+                  <li>Built an HTML website for an international econometrics conference and managed attendee operations with Qualtrics.</li>
+                </ul>
+                <button class="button demo-open" id="open-demo" type="button" aria-expanded="false" aria-controls="demo-panel">See pipeline in action <span aria-hidden="true">→</span></button>
+              </div>
+              <div class="demo-slide">
+                <div class="demo-panel" id="demo-panel" aria-hidden="true">
+                  <div class="demo-slide-header"><p class="console-label">Demo</p><button class="demo-back" id="close-demo" type="button">Return to experience <span aria-hidden="true">←</span></button></div>
+                  <img class="processing-demo-image" src="processing-demo.png" alt="Processing interface demo">
+                  <div class="shiny-window">
+                    <div class="shiny-topbar"><strong>Demo</strong><span>Sample interface</span></div>
+                    <div class="shiny-app" id="shiny-app">
+                      <section class="shiny-mode shiny-workspace" id="demo-preprocessing">
+                        <button class="shiny-back" id="demo-mode-back" type="button">Back to Mode Select</button>
+                        <div class="shiny-workspace-grid">
+                          <aside class="shiny-sidebar">
+                            <label>Username:<input type="text" id="demo-username" placeholder="demo_user"></label>
+                            <div class="shiny-password-row"><label>Password:<input id="demo-password" type="password" value="sample-password"></label><button class="shiny-small" id="demo-toggle-password" type="button">Show/Hide</button></div>
+                            <label>Enter Ticker:<input type="text" id="demo-ticker" value="SPY"></label>
+                            <div class="shiny-two-buttons"><button class="shiny-small" id="demo-add-ticker" type="button">Add</button><button class="shiny-small" id="demo-remove-ticker" type="button">Remove</button></div>
+                            <div class="shiny-list" id="demo-ticker-list">SPY</div>
+                            <label>Enter Exchange code to EXclude:<input type="text" id="demo-exclude-exchange" placeholder="Optional"></label>
+                            <div class="shiny-two-buttons"><button class="shiny-small" id="demo-add-exclude" type="button">Add</button><button class="shiny-small" id="demo-remove-exclude" type="button">Remove</button></div>
+                            <div class="shiny-list" id="demo-exclude-list"></div>
+                            <label>Enter Exchange code to INclude:<input type="text" id="demo-include-exchange" placeholder="Optional"></label>
+                            <div class="shiny-two-buttons"><button class="shiny-small" id="demo-add-include" type="button">Add</button><button class="shiny-small" id="demo-remove-include" type="button">Remove</button></div>
+                            <div class="shiny-list" id="demo-include-list"></div>
+                            <label>Enter Year:<input type="number" id="demo-year" value="2023"></label>
+                            <div class="shiny-two-buttons"><button class="shiny-small" id="demo-add-year" type="button">Add Year</button><button class="shiny-small" id="demo-remove-year" type="button">Remove</button></div>
+                            <div class="shiny-list" id="demo-year-list">2023</div>
+                            <div class="run-actions-row"><button class="shiny-action primary" id="run-demo" type="button">Run 1-Day Sample</button><button class="shiny-action success" id="run-full-demo" type="button">Run Full Program</button><button class="shiny-action danger" id="reset-demo" type="button">Clear Inputs</button></div>
+                          </aside>
+                          <main class="shiny-main"><h4>Status</h4><p id="pipeline-state">Ready to run.</p><div class="demo-progress" aria-hidden="true"><span id="pipeline-progress"></span></div><div id="demo-program-output"><h4>Program Output</h4><h5>Sample Preview (data.pt)</h5><div class="demo-table-wrap"><table class="demo-table"><thead><tr><th>timestamp</th><th>symbol</th><th>price</th><th>volume</th></tr></thead><tbody id="demo-output-rows" hidden><tr><td>09:30:01</td><td>SPY</td><td>682.14</td><td>12,480</td></tr><tr><td>09:30:02</td><td>SPY</td><td>682.18</td><td>8,221</td></tr><tr><td>09:30:03</td><td>SPY</td><td>682.12</td><td>9,104</td></tr></tbody></table></div></div></main>
+                        </div>
+                      </section>
+                    </div>
+                    <p class="demo-disclaimer">Front-end demonstration with sample data only. No credentials, email, or external services are connected.</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <ul>
-              <li>Developed an automated end-to-end ETL pipeline for Mac and Linux using Python, Selenium, and the Gmail API, reducing tick-by-tick stock data processing from two weeks to 24 hours.</li>
-              <li>Built an interactive R Shiny dashboard to filter financial data and improve accessibility for stakeholders.</li>
-              <li>Translated legacy Stata and MATLAB scripts into R, and created cleaning scripts to parse, label, and merge monthly data into multi-year datasets.</li>
-              <li>Built an HTML website for an international econometrics conference and managed attendee operations with Qualtrics.</li>
-            </ul>
           </div>
         </article>
         <article class="experience-item upcoming">
-          <div class="experience-meta"><span>Sept 2026 — Present</span><span>Hong Kong, China</span></div>
+          <div class="experience-meta"><span>Upcoming · Sept 2026</span><span>Hong Kong, China</span></div>
           <div class="experience-content">
-            <p class="role-type">Analytics · Business Intelligence</p>
+            <p class="role-type">Upcoming · Analytics &amp; Business Intelligence</p>
             <h3>Business Analyst</h3>
             <a class="company company-link" href="https://usthing.xyz" target="_blank" rel="noreferrer">USThing · Business Analytics Team <span aria-hidden="true">↗</span></a>
             <div class="role-media role-media-usthing">
@@ -86,9 +120,9 @@
               </a>
             </div>
             <ul>
-              <li>Analyzing consumer behavioral data and business performance for the USThing team.</li>
-              <li>Applying machine learning models to large-scale consumer survey datasets to identify behavioral patterns.</li>
-              <li>Developing predictive models in Excel and interactive dashboards for cross-team stakeholders.</li>
+              <li>Will analyze consumer behavioral data and business performance for the USThing team.</li>
+              <li>Will apply machine learning models to large-scale consumer survey datasets to identify behavioral patterns.</li>
+              <li>Will develop predictive models in Excel and interactive dashboards for cross-team stakeholders.</li>
             </ul>
           </div>
         </article>
@@ -110,12 +144,30 @@
           <div class="education-details">
             <p><strong>Previous study</strong><br><a class="education-link" href="https://join.hkust.edu.hk/our-programs/school-of-business-and-management/operations-management" target="_blank" rel="noreferrer">BBA in Operations Management <span aria-hidden="true">↗</span></a><br><span>Internal transfer · Sept 2024 — Aug 2026</span></p>
             <p><strong>Major CGA</strong><br>3.2 / 4.3</p>
-            <p><strong>Honors &amp; awards</strong><br>University Scholarship Scheme for Continuing Undergraduate Students, 2025/2026</p>
+            <p><strong class="honors-label">Honors &amp; awards</strong><br>University Scholarship Scheme for Continuing Undergraduate Students, 2025/2026</p>
           </div>
         </div>
         <div class="campus-work">
           <p class="section-label">On campus</p>
-          <p>Data Analyst at Be Our Guest @HKUST, maintaining and optimizing Excel and Google Sheets databases. Student Ambassador supporting university outreach and campus events.</p>
+          <div class="campus-grid">
+            <article class="campus-card">
+              <img src="BOG.jpeg" alt="Be Our Guest at HKUST">
+              <div>
+                <p class="campus-role">Data Analyst</p>
+                <h3>Be Our Guest @HKUST</h3>
+                <p>Maintained and optimized Excel and Google Sheets databases to support organization operations.</p>
+                <p class="campus-date">Sept 2025 — Jun 2026</p>
+              </div>
+            </article>
+            <article class="campus-card">
+              <img src="SA.jpeg" alt="HKUST Student Ambassador program">
+              <div>
+                <p class="campus-role">Student Ambassador</p>
+                <h3>HKUST University Outreach</h3>
+                <p>Supported university outreach initiatives and campus events as part of the Student Ambassador program.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -123,7 +175,7 @@
     <section class="section-shell details-section">
       <div class="detail-column">
         <p class="section-label">04 / Toolkit</p>
-        <h2>Practical tools.<br>Thoughtful analysis.</h2>
+        <h2>Practical tools.</h2>
         <div class="skill-tags"><span>Excel</span><span>Python</span><span>R</span><span>Selenium</span><span>R Shiny</span><span>Gmail API</span><span>Qualtrics</span></div>
       </div>
       <div class="detail-column">
@@ -151,8 +203,8 @@
         <div class="contact-links">
           <a href="mailto:fberlincioni@connect.ust.hk">fberlincioni@connect.ust.hk</a>
           <a href="tel:+85262228914">+852 6222 8914</a>
-          <a href="https://www.linkedin.com/in/ferretti-berlincioni/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          <a href="https://github.com/ferrettiberlin-ops" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/ferretti-berlincioni/" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/ferrettiberlin-ops" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
