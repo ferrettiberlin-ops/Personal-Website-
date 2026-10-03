@@ -49,6 +49,7 @@ h1 em, .contact-section h2 em { color: var(--blue); font-style: normal; }
 .button-primary:hover { background: var(--blue); }
 .button-quiet { border-bottom: 1px solid var(--ink); padding-left: 0; }
 .button span[aria-hidden="true"], .header-link span[aria-hidden="true"], .contact-email span[aria-hidden="true"], .company-link span, .education-link span { color: var(--blue); }
+.header-link span[aria-hidden="true"], .company-link span, .education-link span { display: inline-block; font-size: 0.78em; transform: scale(0.8); transform-origin: center; }
 .hero-aside { align-self: end; padding-bottom: 20px; color: var(--muted); }
 .status-mark { display: flex; align-items: center; gap: 9px; color: var(--ink); font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
 .status-mark span { display: block; width: 8px; height: 8px; background: var(--blue); border-radius: 50%; }
