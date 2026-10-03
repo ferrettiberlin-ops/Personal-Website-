@@ -180,7 +180,7 @@ h1 em, .contact-section h2 em { color: var(--blue); font-style: normal; }
 .campus-card h3 { font-size: 0.82rem; letter-spacing: -0.03em; }
 .campus-card p:not(.campus-role):not(.campus-date) { margin: 4px 0 0; font-size: 0.6rem; line-height: 1.3; }
 .campus-date { margin: 5px 0 0; color: var(--ink); font-size: 0.56rem; font-weight: 700; }
-.details-section { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 64px; padding: 125px 0; }
+.details-section { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 42px; padding: 125px 0; }
 .details-section h2 { font-size: clamp(2.1rem, 4vw, 3.7rem); margin: 25px 0 38px; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .skill-tags span { border: 1px solid var(--line); padding: 6px 10px; font-size: 0.75rem; }
@@ -188,6 +188,7 @@ h1 em, .contact-section h2 em { color: var(--blue); font-style: normal; }
 .language-list li { display: flex; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); padding: 10px 0; font-size: 0.85rem; }
 .language-list li span:last-child { color: var(--muted); text-align: right; }
 .volunteering > p:not(.section-label) { margin-top: 25px; color: var(--muted); }
+.authorization > p:not(.section-label) { margin-top: 25px; color: var(--muted); }
 .date-note { margin-top: 24px; }
 .contact-section { background: var(--ink); color: var(--paper); padding: 118px 0 105px; }
 .contact-section .eyebrow { color: var(--mist); }
