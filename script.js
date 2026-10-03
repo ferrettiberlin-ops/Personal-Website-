@@ -12,6 +12,8 @@ const experienceTrack = document.querySelector('#experience-track');
 const experienceContent = document.querySelector('.experience-content');
 const demoPanel = document.querySelector('#demo-panel');
 const demoOpenLabel = document.querySelector('.demo-open-label');
+const experienceDetail = document.querySelector('.experience-detail');
+const demoSlide = document.querySelector('.demo-slide');
 const runButton = document.querySelector('#run-demo');
 const resetButton = document.querySelector('#reset-demo');
 const progressBar = document.querySelector('#pipeline-progress');
@@ -27,8 +29,21 @@ const positionDemoButton = () => {
   openDemoButton.style.setProperty('--demo-button-top', `${buttonTop}px`);
 };
 
+const updateTrackHeight = (isDemo) => {
+  if (!window.matchMedia('(max-width: 760px)').matches) {
+    experienceTrack.style.removeProperty('height');
+    return;
+  }
+  const activeHeight = isDemo ? demoPanel.offsetHeight + 44 : experienceDetail.scrollHeight;
+  experienceTrack.style.height = `${activeHeight}px`;
+};
+
 positionDemoButton();
-window.addEventListener('resize', positionDemoButton);
+updateTrackHeight(false);
+window.addEventListener('resize', () => {
+  positionDemoButton();
+  updateTrackHeight(experienceTrack.classList.contains('is-demo'));
+});
 
 document.querySelector('#demo-toggle-password')?.addEventListener('click', () => {
   const password = document.querySelector('#demo-password');
@@ -59,6 +74,7 @@ document.querySelector('#demo-mode-back')?.addEventListener('click', () => reset
 openDemoButton?.addEventListener('click', () => {
   const isDemo = experienceTrack.classList.toggle('is-demo');
   experienceContent.classList.toggle('is-demo', isDemo);
+  updateTrackHeight(isDemo);
   demoPanel.setAttribute('aria-hidden', String(!isDemo));
   openDemoButton.setAttribute('aria-expanded', String(isDemo));
   demoOpenLabel.style.opacity = '0';

@@ -68,7 +68,7 @@ h1 em, .contact-section h2 em { color: var(--blue); font-style: normal; }
 .experience-item { display: grid; grid-template-columns: clamp(180px, 20vw, 260px) minmax(0, 720px); gap: 48px; padding: 56px 0; border-bottom: 1px solid var(--line); }
 .experience-meta { display: flex; flex-direction: column; gap: 5px; color: var(--muted); font-size: 0.78rem; }
 .experience-content { position: relative; max-width: 720px; overflow: hidden; }
-.experience-track { display: flex; width: 200%; transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1); }
+.experience-track { display: flex; width: 200%; transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1), height 620ms cubic-bezier(0.22, 1, 0.36, 1); }
 .experience-track.is-demo { transform: translateX(-50%); }
 .experience-detail, .demo-slide { flex: 0 0 50%; min-width: 0; padding-top: 44px; transition: opacity 420ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1); }
 .experience-detail { padding-bottom: 60px; }
@@ -221,7 +221,8 @@ h1 em, .contact-section h2 em { color: var(--blue); font-style: normal; }
   .demo-panel { padding: 22px 18px; }
   .processing-demo-image { width: 100%; max-width: none; margin: -12px 0 0; }
   .experience-content { display: flex; flex-direction: column; overflow: clip; }
-  .experience-track { order: 1; }
+  .experience-track { order: 1; overflow: hidden; }
+  .experience-track.is-demo { height: calc(82vw + 4px); }
   .demo-open, .experience-content.is-demo .demo-open { position: relative; top: auto; right: auto; left: auto; align-self: flex-end; order: 2; margin-top: 20px; }
   .shiny-body { grid-template-columns: 1fr; }
   .shiny-sidebar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; align-items: end; }
@@ -237,7 +238,7 @@ h1 em, .contact-section h2 em { color: var(--blue); font-style: normal; }
   .shiny-workspace .shiny-sidebar { border-right: 0; border-bottom: 1px solid #ddd; }
   .content-section, .details-section { padding: 78px 0; }
   .section-heading { gap: 20px; }
-  .experience-item { padding: 40px 0; }
+  .experience-item { padding: 40px 0 16px; }
   .experience-content h3 { font-size: 2.45rem; }
   .education-grid { padding: 48px 0 55px; }
   .education-details { gap: 24px; }
