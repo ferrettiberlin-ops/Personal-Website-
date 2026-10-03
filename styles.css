@@ -219,6 +219,7 @@ h1 em, .contact-section h2 em { color: var(--blue); font-style: normal; }
   .campus-grid { grid-template-columns: 1fr; }
   .demo-slide { padding-left: 12px; }
   .demo-panel { padding: 22px 18px; }
+  .processing-demo-image { width: 100%; max-width: none; margin: -12px 0 0; }
   .experience-content { display: flex; flex-direction: column; overflow: clip; }
   .experience-track { order: 1; }
   .demo-open, .experience-content.is-demo .demo-open { position: relative; top: auto; right: auto; left: auto; align-self: flex-end; order: 2; margin-top: 20px; }
