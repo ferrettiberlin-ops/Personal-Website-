@@ -8,15 +8,28 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 
 const openDemoButton = document.querySelector('#open-demo');
-const closeDemoButton = document.querySelector('#close-demo');
 const experienceTrack = document.querySelector('#experience-track');
+const experienceContent = document.querySelector('.experience-content');
 const demoPanel = document.querySelector('#demo-panel');
+const demoOpenLabel = document.querySelector('.demo-open-label');
+const demoOpenArrow = document.querySelector('#open-demo span[aria-hidden="true"]');
 const runButton = document.querySelector('#run-demo');
 const resetButton = document.querySelector('#reset-demo');
 const progressBar = document.querySelector('#pipeline-progress');
 const pipelineState = document.querySelector('#pipeline-state');
 const outputRows = document.querySelector('#demo-output-rows');
 const fullRunButton = document.querySelector('#run-full-demo');
+
+const positionDemoButton = () => {
+  const bullets = document.querySelector('.experience-detail ul');
+  const content = document.querySelector('.experience-content');
+  if (!bullets || !content) return;
+  const buttonTop = bullets.getBoundingClientRect().bottom - content.getBoundingClientRect().top + 28;
+  openDemoButton.style.setProperty('--demo-button-top', `${buttonTop}px`);
+};
+
+positionDemoButton();
+window.addEventListener('resize', positionDemoButton);
 
 document.querySelector('#demo-toggle-password')?.addEventListener('click', () => {
   const password = document.querySelector('#demo-password');
@@ -45,15 +58,16 @@ document.querySelector('#demo-remove-year')?.addEventListener('click', () => upd
 document.querySelector('#demo-mode-back')?.addEventListener('click', () => resetButton?.click());
 
 openDemoButton?.addEventListener('click', () => {
-  experienceTrack.classList.add('is-demo');
-  demoPanel.setAttribute('aria-hidden', 'false');
-  openDemoButton.setAttribute('aria-expanded', 'true');
-});
-
-closeDemoButton?.addEventListener('click', () => {
-  experienceTrack.classList.remove('is-demo');
-  demoPanel.setAttribute('aria-hidden', 'true');
-  openDemoButton.setAttribute('aria-expanded', 'false');
+  const isDemo = experienceTrack.classList.toggle('is-demo');
+  experienceContent.classList.toggle('is-demo', isDemo);
+  demoPanel.setAttribute('aria-hidden', String(!isDemo));
+  openDemoButton.setAttribute('aria-expanded', String(isDemo));
+  demoOpenLabel.style.opacity = '0';
+  window.setTimeout(() => {
+    demoOpenLabel.textContent = isDemo ? 'Return to experience' : 'UI showcase';
+    demoOpenArrow.textContent = isDemo ? '←' : '→';
+    demoOpenLabel.style.opacity = '1';
+  }, 180);
 });
 
 const runDemo = () => {
