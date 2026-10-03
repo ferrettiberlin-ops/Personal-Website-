@@ -21,10 +21,10 @@ const outputRows = document.querySelector('#demo-output-rows');
 const fullRunButton = document.querySelector('#run-full-demo');
 
 const positionDemoButton = () => {
-  const bullets = document.querySelector('.experience-detail ul');
+  const roleHeader = document.querySelector('.experience-detail-layout > div:last-child');
   const content = document.querySelector('.experience-content');
-  if (!bullets || !content) return;
-  const buttonTop = bullets.getBoundingClientRect().bottom - content.getBoundingClientRect().top + 28;
+  if (!roleHeader || !content) return;
+  const buttonTop = roleHeader.getBoundingClientRect().bottom - content.getBoundingClientRect().top + 20;
   openDemoButton.style.setProperty('--demo-button-top', `${buttonTop}px`);
 };
 
