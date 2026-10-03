@@ -12,7 +12,6 @@ const experienceTrack = document.querySelector('#experience-track');
 const experienceContent = document.querySelector('.experience-content');
 const demoPanel = document.querySelector('#demo-panel');
 const demoOpenLabel = document.querySelector('.demo-open-label');
-const demoOpenArrow = document.querySelector('#open-demo span[aria-hidden="true"]');
 const runButton = document.querySelector('#run-demo');
 const resetButton = document.querySelector('#reset-demo');
 const progressBar = document.querySelector('#pipeline-progress');
@@ -65,7 +64,6 @@ openDemoButton?.addEventListener('click', () => {
   demoOpenLabel.style.opacity = '0';
   window.setTimeout(() => {
     demoOpenLabel.textContent = isDemo ? 'Return to experience' : 'UI showcase';
-    demoOpenArrow.textContent = isDemo ? '←' : '→';
     demoOpenLabel.style.opacity = '1';
   }, 180);
 });
