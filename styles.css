@@ -70,6 +70,7 @@ h1 em, .contact-section h2 em { color: var(--blue); font-style: normal; }
 .experience-track { display: flex; width: 200%; transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1); }
 .experience-track.is-demo { transform: translateX(-50%); }
 .experience-detail, .demo-slide { flex: 0 0 50%; min-width: 0; padding-top: 44px; transition: opacity 420ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1); }
+.experience-detail { padding-bottom: 60px; }
 .experience-detail { opacity: 1; transform: translateX(0); }
 .demo-slide { padding-left: 24px; opacity: 0; transform: translateX(42px); }
 .experience-track.is-demo .experience-detail { opacity: 0; transform: translateX(-42px); }
@@ -217,6 +218,9 @@ h1 em, .contact-section h2 em { color: var(--blue); font-style: normal; }
   .campus-grid { grid-template-columns: 1fr; }
   .demo-slide { padding-left: 12px; }
   .demo-panel { padding: 22px 18px; }
+  .experience-content { display: flex; flex-direction: column; overflow: clip; }
+  .experience-track { order: 1; }
+  .demo-open, .experience-content.is-demo .demo-open { position: relative; top: auto; right: auto; left: auto; align-self: flex-end; order: 2; margin-top: 20px; }
   .shiny-body { grid-template-columns: 1fr; }
   .shiny-sidebar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; align-items: end; }
   .shiny-sidebar .console-label { grid-column: 1 / -1; margin: 0; }
@@ -239,4 +243,8 @@ h1 em, .contact-section h2 em { color: var(--blue); font-style: normal; }
   .contact-section h2 { font-size: clamp(3.5rem, 17vw, 6rem); }
   .contact-links { margin-top: 60px; flex-direction: column; gap: 12px; }
   .site-footer { flex-direction: column; gap: 7px; }
+  .hero-copy { min-width: 0; }
+}
+@media (max-width: 340px) {
+  h1 { font-size: 3.6rem; }
 }
